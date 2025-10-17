@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Unlock Your Free Gift — Instant Access</title>
+  <style>
+    :root {
+      --accent: #0ea5a4;
+      --bg: #0f172a;
+      --card: #0b1220;
+      --muted: #9aa4b2;
+    }
+    * { box-sizing: border-box; font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif; }
+    body { margin: 0; background: linear-gradient(180deg, #071028 0%, #071723 100%); color: #e6eef6; }
+    .container { max-width: 900px; margin: 40px auto; padding: 20px; }
+    header { display: flex; align-items: center; justify-content: space-between; margin-bottom: 24px; }
+    .brand { display: flex; gap: 12px; align-items: center; }
+    .logo { width: 52px; height: 52px; border-radius: 12px; background: linear-gradient(135deg, var(--accent), #06b6d4); display: flex; align-items: center; justify-content: center; font-weight: 700; color: #022; box-shadow: 0 6px 18px rgba(2,6,23,.6); }
+    h1 { font-size: 22px; margin: 0; }
+    p.lead { margin: 4px 0 0; color: var(--muted); }
+    .card { background: rgba(255,255,255,0.03); padding: 22px; border-radius: 12px; box-shadow: 0 6px 20px rgba(2,6,23,.6); }
+    .hero-title { font-size: 26px; margin: 0 0 10px; }
+    .hero-sub { color: var(--muted); margin: 0 0 16px; }
+    .steps { display: flex; flex-direction: column; gap: 8px; }
+    .step { display: flex; gap: 12px; align-items: center; }
+    .bubble { width: 36px; height: 36px; border-radius: 10px; background: rgba(255,255,255,0.06); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--accent); }
+    form { display: flex; flex-direction: column; gap: 10px; margin-top: 12px; }
+    input[type="email"] { padding: 12px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); background: transparent; color: inherit; }
+    button.primary { padding: 12px; border-radius: 10px; border: 0; background: var(--accent); color: #022; font-weight: 700; cursor: pointer; transition: 0.3s; }
+    button.primary:hover { background: #14b8a6; }
+    button.ghost { padding: 10px; border-radius: 10px; border: 1px solid rgba(255,255,255,0.06); background: transparent; color: var(--muted); cursor: pointer; transition: 0.3s; }
+    button.ghost:hover { border-color: var(--accent); color: var(--accent); }
+    footer { margin-top: 28px; color: var(--muted); font-size: 13px; text-align: center; }
+    .timer { margin-top: 20px; font-size: 18px; font-weight: 700; text-align: center; color: var(--accent); }
+    .reviews { margin-top: 32px; background: rgba(255,255,255,0.02); padding: 20px; border-radius: 10px; }
+    .review { border-bottom: 1px solid rgba(255,255,255,0.05); padding: 10px 0; }
+    .review:last-child { border: none; }
+    .stars { color: #facc15; }
+    .reviewer { color: var(--accent); font-weight: 600; }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <div class="brand">
+        <div class="logo">OG</div>
+        <div>
+          <h1>Unlock Your Free Gift</h1>
+          <p class="lead">Exclusive content — Unlock to get instant access.</p>
+        </div>
+      </div>
+    </header>
+
+    <section class="card">
+      <h2 class="hero-title">Get Your File Instantly</h2>
+      <p class="hero-sub">Follow these steps to unlock your content immediately.</p>
+
+      <div class="steps">
+        <div class="step"><div class="bubble">1</div><div>Enter your email (optional)</div></div>
+        <div class="step"><div class="bubble">2</div><div>Complete a quick offer to unlock content</div></div>
+        <div class="step"><div class="bubble">3</div><div>Click “Unlock Download” and wait for the file</div></div>
+      </div>
+
+      <form id="unlockForm" onsubmit="return false;">
+        <input id="email" type="email" placeholder="Your email (optional)" />
+        <button class="primary" id="unlockBtn">Unlock Download</button>
+        <button class="ghost" id="skipBtn">Skip & Continue</button>
+      </form>
+
+      <div id="timer" class="timer" style="display:none;">Unlocking in <span id="countdown">5</span> seconds...</div>
+      <button id="retryBtn" class="primary" style="display:none;margin-top:12px;">Retry</button>
+    </section>
+
+    <section class="reviews">
+      <h3 style="margin-top:0">User Ratings</h3>
+      <div class="review"><div class="stars">★★★★★</div><div><span class="reviewer">Sarah M.</span>: Got my file instantly. Super easy to use!</div></div>
+      <div class="review"><div class="stars">★★★★☆</div><div><span class="reviewer">James P.</span>: Worked great. Took just one short survey.</div></div>
+      <div class="review"><div class="stars">★★★★★</div><div><span class="reviewer">Alicia R.</span>: Fast and smooth. Highly recommended!</div></div>
+      <div class="review"><div class="stars">★★★★★</div><div><span class="reviewer">Mike D.</span>: I unlocked my bonus content in seconds. Awesome!</div></div>
+    </section>
+
+    <footer>
+      <div>© 2025 — Use this page responsibly with OGAds policies.</div>
+      <div>Replace <strong>OFFER_URL</strong> in the script with your OGAds offer link.</div>
+    </footer>
+  </div>
+
+  <script>
+    const OFFER_URL = 'https://example.com/ogads-offer'; // Replace with your offer link
+    const REDIRECT_DELAY_MS = 5000; // 5 seconds timer
+
+    const unlockBtn = document.getElementById('unlockBtn');
+    const skipBtn = document.getElementById('skipBtn');
+    const retryBtn = document.getElementById('retryBtn');
+    const timer = document.getElementById('timer');
+    const countdown = document.getElementById('countdown');
+
+    function startCountdown() {
+      let remaining = 5;
+      timer.style.display = 'block';
+      retryBtn.style.display = 'none';
+      countdown.textContent = remaining;
+      const interval = setInterval(() => {
+        remaining--;
+        countdown.textContent = remaining;
+        if (remaining <= 0) {
+          clearInterval(interval);
+          window.location.href = OFFER_URL;
+        }
+      }, 1000);
+    }
+
+    function resetCountdown() {
+      timer.style.display = 'none';
+      retryBtn.style.display = 'inline-block';
+    }
+
+    unlockBtn.addEventListener('click', () => {
+      document.querySelector('form').style.display = 'none';
+      startCountdown();
+    });
+
+    skipBtn.addEventListener('click', () => {
+      document.querySelector('form').style.display = 'none';
+      startCountdown();
+    });
+
+    retryBtn.addEventListener('click', () => {
+      startCountdown();
+    });
+  </script>
+</body>
+</html>
